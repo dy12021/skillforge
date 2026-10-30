@@ -1,0 +1,3 @@
+ALTER TABLE "annotations" ADD COLUMN "author_id" uuid DEFAULT '00000000-0000-4000-8000-000000000001' NOT NULL;--> statement-breakpoint
+ALTER TABLE "annotations" ADD COLUMN "reanchored_from_id" uuid;--> statement-breakpoint
+ALTER TABLE "annotations" ADD CONSTRAINT "annotation_reanchor_fk" FOREIGN KEY ("reanchored_from_id") REFERENCES "public"."annotations"("id") ON DELETE no action ON UPDATE no action;

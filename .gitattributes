@@ -1,0 +1,22 @@
+# Keep line endings deterministic across Windows/macOS/Linux checkouts.
+# Without this, a Windows clone (core.autocrlf=true) can commit CRLF into
+# files that CI executes on Linux.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary
+*.mp3 binary
+*.wav binary

@@ -1,0 +1,46 @@
+{
+  "name": "skillforge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "node scripts/web.mjs dev",
+    "build": "pnpm skill:tools && pnpm typecheck && node scripts/web.mjs build",
+    "skill:tools": "node scripts/build-skill-tools.mjs",
+    "skill:package": "pnpm skill:tools && node scripts/build-skill-package.mjs",
+    "start": "node scripts/web.mjs start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p packages/core/tsconfig.json && pnpm --filter @skillforge/web typecheck",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:test:prepare": "tsx scripts/prepare-test.ts",
+    "worker": "tsx scripts/worker.ts",
+    "skillforge": "node .agents/skills/skillforge/scripts/skillforge.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "dotenv": "^18.0.9",
+    "drizzle-kit": "^0.31.11",
+    "drizzle-orm": "^0.45.4",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
+    "eslint-config-next": "^16.4.3",
+    "fflate": "^0.8.3",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5",
+    "zod": "^4.6.7"
+  }
+}
